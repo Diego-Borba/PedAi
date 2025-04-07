@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "a+lfN9KGrp84asa17q8GJP8HezSW6Bwa6p+7vPeoIgE=",
+  "Source": "PedAi",
+  "BasePath": "_content/PedAi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PedAi\\wwwroot",
+      "Source": "PedAi",
+      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
+      "BasePath": "_content/PedAi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\diego\\PedAi\\wwwroot\\index.html",
+      "SourceId": "PedAi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
+      "BasePath": "_content/PedAi",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}

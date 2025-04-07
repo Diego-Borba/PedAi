@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Produtos - PedAi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container mt-5">
+
+  <h1 class="mb-4">Cadastro de Produto</h1>
+
+  <form id="formProduto" class="mb-5">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" required>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Preço</label>
+        <input type="number" class="form-control" id="preco" step="0.01" required>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Quantidade Máxima</label>
+        <input type="number" class="form-control" id="qtdeMax" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Categoria</label>
+        <input type="text" class="form-control" id="categoria">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Código PDV</label>
+        <input type="text" class="form-control" id="codigoPdv">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Descrição</label>
+        <textarea class="form-control" id="descricao"></textarea>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Ordem Visualização</label>
+        <input type="number" class="form-control" id="ordemVisualicao">
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Imagem (URL)</label>
+        <input type="text" class="form-control" id="imagem">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mt-4">Salvar Produto</button>
+  </form>
+
+  <script>
+    function carregarProdutos() {
+      fetch('/api/produtos')
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.getElementById('produtos');
+          tbody.innerHTML = '';
+          data.forEach(p => {
+            tbody.innerHTML += `
+              <tr>
+                <td>${p.nome}</td>
+                <td>R$ ${p.preco.toFixed(2)}</td>
+                <td>${p.categoria}</td>
+                <td>${p.qtdeMax}</td>
+                <td>${p.codigoPdv}</td>
+              </tr>`;
+          });
+        });
+    }
+
+    document.getElementById('formProduto').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const produto = {
+        nome: document.getElementById('nome').value,
+        preco: parseFloat(document.getElementById('preco').value),
+        qtdeMax: parseInt(document.getElementById('qtdeMax').value),
+        categoria: document.getElementById('categoria').value,
+        codigoPdv: document.getElementById('codigoPdv').value,
+        descricao: document.getElementById('descricao').value,
+        ordemVisualicao: parseInt(document.getElementById('ordemVisualicao').value),
+        imagem: document.getElementById('imagem').value
+      };
+
+      fetch('/api/produtos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(produto)
+      })
+        .then(res => {
+          if (res.ok) {
+            alert('Produto cadastrado com sucesso!');
+            document.getElementById('formProduto').reset();
+            carregarProdutos();
+          } else {
+            alert('Erro ao cadastrar produto');
+          }
+        });
+    });
+
+    //carregarProdutos();
+  </script>
+
+</body>
+
+</html>
