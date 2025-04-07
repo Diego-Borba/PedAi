@@ -3350,19 +3350,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\diego\\.nuget\\packages\\": {}
+    "C:\\Users\\BM Implantação 02\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\diego\\PedAi\\PedAi.csproj",
+      "projectUniqueName": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\PedAi.csproj",
       "projectName": "PedAi",
-      "projectPath": "C:\\Users\\diego\\PedAi\\PedAi.csproj",
-      "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\diego\\PedAi\\obj\\",
+      "projectPath": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\PedAi.csproj",
+      "packagesPath": "C:\\Users\\BM Implantação 02\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\diego\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\BM Implantação 02\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

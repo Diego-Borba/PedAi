@@ -1,7 +1,15 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\diego\\PedAi\\wwwroot\\index.html",
+      "Id": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\Pedidos.html",
+      "PackagePath": "staticwebassets\\Pedidos.html"
+    },
+    {
+      "Id": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\Produtos.html",
+      "PackagePath": "staticwebassets\\Produtos.html"
+    },
+    {
+      "Id": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {

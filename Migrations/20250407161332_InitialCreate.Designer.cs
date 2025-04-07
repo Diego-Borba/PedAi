@@ -11,7 +11,7 @@ using PedAi.Data;
 namespace PedAi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250405195917_InitialCreate")]
+    [Migration("20250407161332_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

@@ -1,4 +1,3 @@
-// Program.cs
 using Microsoft.EntityFrameworkCore;
 using PedAi.Data;
 

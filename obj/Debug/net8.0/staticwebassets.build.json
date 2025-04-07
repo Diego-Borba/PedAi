@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a+lfN9KGrp84asa17q8GJP8HezSW6Bwa6p+7vPeoIgE=",
+  "Hash": "aoua3al2HwBL90NTcjYTwmUeN0NEt3r1KkNdy8EtUHQ=",
   "Source": "PedAi",
   "BasePath": "_content/PedAi",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "PedAi\\wwwroot",
       "Source": "PedAi",
-      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
       "BasePath": "_content/PedAi",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\diego\\PedAi\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\index.html",
       "SourceId": "PedAi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
       "BasePath": "_content/PedAi",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -34,6 +34,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\Pedidos.html",
+      "SourceId": "PedAi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "BasePath": "_content/PedAi",
+      "RelativePath": "Pedidos.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Pedidos.html"
+    },
+    {
+      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\Produtos.html",
+      "SourceId": "PedAi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "BasePath": "_content/PedAi",
+      "RelativePath": "Produtos.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Produtos.html"
     }
   ]
 }

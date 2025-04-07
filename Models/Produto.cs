@@ -11,5 +11,6 @@ namespace PedAi.Models
         public string Categoria { get; set; }
         public string CodigoPdv { get; set; }
         public string Imagem { get; set; }
+        
     }
 }
