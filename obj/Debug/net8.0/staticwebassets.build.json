@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aoua3al2HwBL90NTcjYTwmUeN0NEt3r1KkNdy8EtUHQ=",
+  "Hash": "sEvT5JLgmgkfggR5BHC/7Mx5vW+7znLumTtIXqcZG4s=",
   "Source": "PedAi",
   "BasePath": "_content/PedAi",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\admin-pedidos.html",
+      "SourceId": "PedAi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "BasePath": "_content/PedAi",
+      "RelativePath": "admin-pedidos.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin-pedidos.html"
+    },
     {
       "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\index.html",
       "SourceId": "PedAi",
