@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PedAi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3d7a4651eec712ba79e10398a48816814d8bebc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a64a598ab77cd342d533d3f88c4b2a55512b18ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("PedAi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PedAi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
