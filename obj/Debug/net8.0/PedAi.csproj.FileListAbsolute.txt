@@ -271,3 +271,4 @@ C:\Users\BM Implantação 02\Documents\GITHUB\PedAi\obj\Debug\net8.0\PedAi.pdb
 C:\Users\BM Implantação 02\Documents\GITHUB\PedAi\obj\Debug\net8.0\PedAi.genruntimeconfig.cache
 C:\Users\BM Implantação 02\Documents\GITHUB\PedAi\obj\Debug\net8.0\ref\PedAi.dll
 C:\Users\BM Implantação 02\Documents\GITHUB\PedAi\bin\Debug\net8.0\appsettings.json
+C:\Users\diego\PedAi\obj\Debug\net8.0\PedAi.sourcelink.json

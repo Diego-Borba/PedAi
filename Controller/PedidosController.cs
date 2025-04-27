@@ -68,13 +68,12 @@ namespace PedAi.Controllers
             });
         }
 
-        // GET: api/pedidos
         [HttpGet]
         public async Task<IActionResult> GetPedidos()
         {
             var pedidos = await _context.Pedidos
-                .Include(p => p.Itens)
-                .ThenInclude(i => i.Produto)
+                .Include(p => p.Itens) // Inclui os itens do pedido
+                .ThenInclude(i => i.Produto) // Inclui os produtos relacionados aos itens
                 .OrderByDescending(p => p.DataPedido)
                 .ToListAsync();
 
@@ -86,7 +85,7 @@ namespace PedAi.Controllers
                 Itens = p.Itens.Select(i => new
                 {
                     i.ProdutoId,
-                    Produto = i.Produto.Nome,
+                    Produto = i.Produto?.Nome, 
                     i.Quantidade,
                     i.PrecoUnitario
                 })

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sEvT5JLgmgkfggR5BHC/7Mx5vW+7znLumTtIXqcZG4s=",
+  "Hash": "EJFYEcVX7SbKgryZTsmcdqKugauEIeSaQlkDZG+0ucU=",
   "Source": "PedAi",
   "BasePath": "_content/PedAi",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "PedAi\\wwwroot",
       "Source": "PedAi",
-      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
       "BasePath": "_content/PedAi",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\admin-pedidos.html",
+      "Identity": "C:\\Users\\diego\\PedAi\\wwwroot\\admin-pedidos.html",
       "SourceId": "PedAi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
       "BasePath": "_content/PedAi",
       "RelativePath": "admin-pedidos.html",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\admin-pedidos.html"
     },
     {
-      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\diego\\PedAi\\wwwroot\\index.html",
       "SourceId": "PedAi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
       "BasePath": "_content/PedAi",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\Pedidos.html",
+      "Identity": "C:\\Users\\diego\\PedAi\\wwwroot\\Pedidos.html",
       "SourceId": "PedAi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
       "BasePath": "_content/PedAi",
       "RelativePath": "Pedidos.html",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\Pedidos.html"
     },
     {
-      "Identity": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\Produtos.html",
+      "Identity": "C:\\Users\\diego\\PedAi\\wwwroot\\Produtos.html",
       "SourceId": "PedAi",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\BM Implantação 02\\Documents\\GITHUB\\PedAi\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\diego\\PedAi\\wwwroot\\",
       "BasePath": "_content/PedAi",
       "RelativePath": "Produtos.html",
       "AssetKind": "All",

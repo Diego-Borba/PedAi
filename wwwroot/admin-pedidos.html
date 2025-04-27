@@ -8,21 +8,97 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
-        .column {
-            min-height: 500px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #343a40;
+        body {
+            background-color: #212529;
+            color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .card {
-            cursor: grab;
+        .header {
+            background-color: #343a40;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: #0d6efd;
+            /* Azul */
+            font-weight: bold;
+        }
+
+        .column {
+            min-height: 500px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 15px;
+            border: 1px solid #495057;
+            border-radius: 10px;
+            background-color: #343a40;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
 
         .column h4 {
             text-align: center;
             margin-bottom: 15px;
+            color: #0d6efd;
+            /* Azul */
+        }
+
+        .column.drag-over {
+            background-color: #495057 !important;
+        }
+
+        .card {
+            cursor: grab;
+            border: none;
+            border-radius: 10px;
+            background-color: #495057;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background-color: #343a40;
+            border-bottom: 1px solid #6c757d;
+            color: #0d6efd;
+            /* Azul */
+            font-weight: bold;
+        }
+
+        .card-footer {
+            background-color: #343a40;
+            border-top: 1px solid #6c757d;
+        }
+
+        .btn-primary {
+            background-color: #0d6efd;
+            /* Azul */
+            border: none;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            /* Azul mais escuro */
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
         }
 
         .drag-over {
@@ -31,15 +107,18 @@
     </style>
 </head>
 
-<body class="bg-dark text-white">
+<body>
+    <div class="header">
+        <h2>PedAi - Painel de Pedidos (KDS)</h2>
+    </div>
+
     <div class="container-fluid mt-4">
-        <h2 class="mb-4 text-center">Painel de Pedidos (KDS)</h2>
         <div class="row g-3" id="kdsBoard">
         </div>
     </div>
 
     <script>
-        const statusList = ['Recebido', 'Pendente', 'Em Preparo', 'Saiu para Entrega', 'Entregue'];
+        const statusList = ['Recebido', 'Pendente', 'Em Preparo', 'Saiu para Entrega'];
 
         async function carregarPedidos() {
             try {
@@ -48,7 +127,6 @@
                 const board = document.getElementById('kdsBoard');
                 board.innerHTML = '';
 
-                // Criar colunas por status
                 statusList.forEach(status => {
                     const col = document.createElement('div');
                     col.className = 'col-md-3';
@@ -56,37 +134,50 @@
                         <div class="column" id="coluna-${status}" 
                             ondragover="permitirSoltar(event)" 
                             ondrop="soltar(event, '${status}')">
-                            <h4>${status}</h4>
+                            <h4>${status} (<span id="contador-${status}">0</span>)</h4>
                         </div>`;
                     board.appendChild(col);
                 });
 
-                // Inserir cards nas colunas corretas
+                const contadores = {};
+                statusList.forEach(status => contadores[status] = 0);
+
                 pedidos.forEach(p => {
+                    if (p.status === 'Entregue') return;
+
                     const card = document.createElement('div');
-                    card.className = 'card mb-2 bg-secondary text-white';
+                    card.className = 'card mb-3 text-white';
                     card.setAttribute('draggable', true);
                     card.setAttribute('id', 'pedido-' + p.id);
                     card.ondragstart = arrastar;
 
                     const itensHtml = p.itens.map(i => `
                         <li class="list-group-item bg-dark text-white border-secondary">
-                            ${i.quantidade}x ${i.produto.nome} - R$ ${(i.precoUnitario).toFixed(2)}
+                            ${i.quantidade}x ${i.produto || 'Produto desconhecido'} - R$ ${(i.quantidade * i.precoUnitario).toFixed(2)}
                         </li>`).join('');
 
                     card.innerHTML = `
                         <div class="card-header">
-                            <span><strong>Pedido #${p.id}</strong> - ${new Date(p.DataPedido).toLocaleString()}</span>
+                            Pedido #${p.id} - ${new Date(p.dataPedido).toLocaleString('pt-BR')}
                         </div>
                         <ul class="list-group list-group-flush">${itensHtml}</ul>
                         <div class="card-footer text-end small">
                             Status: <strong>${p.status}</strong>
                             <button class="btn btn-sm btn-primary ms-2" onclick="imprimirPedido(${p.id})">Imprimir</button>
+                            ${p.status === 'Saiu para Entrega' ? `<button class="btn btn-sm btn-success ms-2" onclick="concluirPedido(${p.id})">Concluir</button>` : ''}
                         </div>`;
 
                     const coluna = document.getElementById('coluna-' + p.status);
                     if (coluna) {
                         coluna.appendChild(card);
+                        contadores[p.status]++;
+                    }
+                });
+
+                statusList.forEach(status => {
+                    const contador = document.getElementById(`contador-${status}`);
+                    if (contador) {
+                        contador.textContent = contadores[status];
                     }
                 });
             } catch (err) {
@@ -129,50 +220,49 @@
 
         function formatarPedidoParaImpressao(pedido) {
             let texto = `Pedido #${pedido.id}\n`;
-            texto += `Data: ${new Date(pedido.DataPedido).toLocaleString()}\n`;
+            texto += `Data: ${new Date(pedido.dataPedido).toLocaleString('pt-BR')}\n`;
             texto += `Status: ${pedido.status}\n\n`;
             texto += `Itens:\n`;
+            let totalPedido = 0;
+
             pedido.itens.forEach(item => {
-                const nomeProduto = item.produto?.nome || 'Produto desconhecido';
-                texto += `${item.quantidade}x ${nomeProduto.padEnd(30, ' ')} R$ ${(item.precoUnitario).toFixed(2)}\n`;
+                const nomeProduto = item.produto || 'Produto desconhecido'; // Acessa diretamente o nome do produto
+                const totalItem = item.quantidade * item.precoUnitario;
+                totalPedido += totalItem;
+                texto += `${item.quantidade}x ${nomeProduto.padEnd(30, ' ')} R$ ${totalItem.toFixed(2)}\n`;
             });
-            texto += `\nTotal: R$ ${(pedido.itens.reduce((total, item) => total + item.quantidade * item.precoUnitario, 0)).toFixed(2)}\n`;
+
+            texto += `\nTotal do Pedido: R$ ${totalPedido.toFixed(2)}\n`;
             texto += `\n--------------------------------\n`;
             return texto;
         }
-
         async function imprimirPedido(idPedido) {
             try {
                 const res = await axios.get(`/api/pedidos/${idPedido}`);
                 const pedido = res.data;
                 const textoImpressao = formatarPedidoParaImpressao(pedido);
-
-                // Criar uma nova janela para visualização de impressão
                 const janelaImpressao = window.open('', '_blank', 'width=600,height=800');
                 if (janelaImpressao) {
-                    // Gerar o conteúdo HTML para a janela de impressão
                     janelaImpressao.document.write(`
-                <!DOCTYPE html>
-                <html lang="pt-br">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Impressão do Pedido</title>
-                    <style>
-                        body {
-                            font-family: monospace;
-                            white-space: pre-wrap;
-                            margin: 0;
-                            padding: 20px;
-                        }
-                    </style>
-                </head>
-                <body>
-                    ${textoImpressao.replace(/\n/g, '<br>')}
-                </body>
-                </html>
-            `);
-
-                    // Aguarde o carregamento do conteúdo e inicie a impressão
+                        <!DOCTYPE html>
+                        <html lang="pt-br">
+                        <head>
+                            <meta charset="UTF-8">
+                            <title>Impressão do Pedido</title>
+                            <style>
+                                body {
+                                    font-family: monospace;
+                                    white-space: pre-wrap;
+                                    margin: 0;
+                                    padding: 20px;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            ${textoImpressao.replace(/\n/g, '<br>')}
+                        </body>
+                        </html>
+                    `);
                     janelaImpressao.document.close();
                     janelaImpressao.focus();
                     janelaImpressao.print();
@@ -185,7 +275,18 @@
             }
         }
 
-
+        async function concluirPedido(idPedido) {
+            try {
+                await axios.put(`/api/pedidos/${idPedido}/status`, { novoStatus: 'Entregue' }, {
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                alert('Pedido concluído com sucesso!');
+                carregarPedidos();
+            } catch (err) {
+                console.error(err);
+                alert('Erro ao concluir o pedido.');
+            }
+        }
 
         window.onload = carregarPedidos;
     </script>

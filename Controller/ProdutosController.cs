@@ -17,9 +17,22 @@ namespace PedAi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Produto>>> GetProdutos()
+        public async Task<ActionResult<IEnumerable<object>>> GetProdutos()
         {
-            return await _context.Produtos.ToListAsync();
+            var produtos = await _context.Produtos
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Nome,
+                    p.Preco,
+                    p.Categoria,
+                    p.QtdeMax,
+                    p.Descricao,
+                    p.Imagem
+                })
+                .ToListAsync();
+
+            return Ok(produtos);
         }
 
         [HttpGet("{id}")]
